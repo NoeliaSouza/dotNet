@@ -1,0 +1,15 @@
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce.Modelos\bin\Debug\net7.0\Ecommerce.Modelos.deps.json
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce.Modelos\bin\Debug\net7.0\Ecommerce.Modelos.dll
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce.Modelos\bin\Debug\net7.0\Ecommerce.Modelos.pdb
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce.Modelos\bin\Debug\net7.0\Ecommerce.Utilidades.dll
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce.Modelos\bin\Debug\net7.0\Ecommerce.Utilidades.pdb
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce.Modelos\obj\Debug\net7.0\Ecommerce.Modelos.csproj.AssemblyReference.cache
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce.Modelos\obj\Debug\net7.0\Ecommerce.Modelos.GeneratedMSBuildEditorConfig.editorconfig
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce.Modelos\obj\Debug\net7.0\Ecommerce.Modelos.AssemblyInfoInputs.cache
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce.Modelos\obj\Debug\net7.0\Ecommerce.Modelos.AssemblyInfo.cs
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce.Modelos\obj\Debug\net7.0\Ecommerce.Modelos.csproj.CoreCompileInputs.cache
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce.Modelos\obj\Debug\net7.0\Ecommerce.Modelos.csproj.CopyComplete
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce.Modelos\obj\Debug\net7.0\Ecommerce.Modelos.dll
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce.Modelos\obj\Debug\net7.0\refint\Ecommerce.Modelos.dll
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce.Modelos\obj\Debug\net7.0\Ecommerce.Modelos.pdb
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce.Modelos\obj\Debug\net7.0\ref\Ecommerce.Modelos.dll
