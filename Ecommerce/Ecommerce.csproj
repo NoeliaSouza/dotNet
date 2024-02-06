@@ -26,8 +26,4 @@
     <ProjectReference Include="..\Ecommerce.Utilidades\Ecommerce.Utilidades.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Controllers\" />
-  </ItemGroup>
-
 </Project>
