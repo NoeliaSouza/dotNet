@@ -15,7 +15,7 @@
         @if (Model.Id != 0)
         {
             titulo = "Actualizar Bodega";
-            <input type="hidden" asp-for="Id"/>
+            <input type="hidden" asp-for="Id" id="id"/>
         }
 
         <div class="col-12 border-bottom p-0">
@@ -27,8 +27,9 @@
             <div class="form-group col-md-6">
                 <label>Nombre</label>
                 <input type="text" asp-for="Nombre" class="form-control" 
-                placeholder="Nombre de la Bodega"/>
-                <span asp-validation-for="Nombre" class="text-danger"></span>
+                placeholder="Nombre de la Bodega" id="nombre"/>
+                <span asp-validation-for="Nombre" class="text-danger" ></span>
+                <!--<span id="txtNombre" style="color:red"></span>-->
             </div>
         </div>
         
@@ -37,7 +38,7 @@
                 <label>Descripcion</label>
                 <input type="text" asp-for="Descripcion" class="form-control"
                        placeholder="Descripcion de la Bodega" />
-                <spanasp-validation-for="Descripcion" class="text-danger"></span>
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
         </div>
 
@@ -73,4 +74,36 @@
 
 @section Scripts{
     <partial name="_ValidationScriptsPartial"></partial>
+    
+    <script>
+        document.getElementById("nombre").addEventListener('change', function(){
+            validarNombre();
+        });
+
+        function validarNombre(){
+            var url='@Url.Content("~/")'+"Admin/Bodega/ValidarNombre";
+            var id='#id';
+            var nombre= '#nombre';
+
+            $.getJSON(url, {id:$(id).val(), nombre:$(nombre).val()}, function(data){
+                $.each(data, function(key, value){
+                    if (value){
+                        var nombre = document.getElementById("nombre");
+                        swal("Error", "El nombre ya existe", "error");
+                        $('#btnCrearBodega').prop("disabled",true);
+                        $('#btnActualizarBodega').prop("disabled", true);
+                        nombre.value="";
+                        /*$('#txtNombre').text("El nombre ya existe");
+                        $('#txtNombre').show();*/
+                    }else{
+                        $('#btnCrearBodega').prop("disabled", false);
+                        $('#btnActualizarBodega').prop("disabled", false);
+                        /*$('#txtNombre').hide();*/
+                    }
+                })
+            })
+        }
+
+    </script>
+
 }
