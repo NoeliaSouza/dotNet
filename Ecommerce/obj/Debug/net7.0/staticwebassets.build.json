@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NCfVj/RZqe+xrx4BHhmLtCbPqy0UwS3Ztzt6TO1YK6o=",
+  "Hash": "yN2IyK3glKKCc84pVHtYYW0InhMqnmeNQwFVFd5FSwU=",
   "Source": "Ecommerce",
   "BasePath": "_content/Ecommerce",
   "Mode": "Default",
@@ -1120,6 +1120,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\bodega.js"
+    },
+    {
+      "Identity": "D:\\Descargas\\Escritorio\\Facultad\\Udemy\\ASP.NET CORE MVC\\Proyecto\\dotNet\\Ecommerce\\Ecommerce\\wwwroot\\js\\categoria.js",
+      "SourceId": "Ecommerce",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Descargas\\Escritorio\\Facultad\\Udemy\\ASP.NET CORE MVC\\Proyecto\\dotNet\\Ecommerce\\Ecommerce\\wwwroot\\",
+      "BasePath": "_content/Ecommerce",
+      "RelativePath": "js/categoria.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\categoria.js"
     },
     {
       "Identity": "D:\\Descargas\\Escritorio\\Facultad\\Udemy\\ASP.NET CORE MVC\\Proyecto\\dotNet\\Ecommerce\\Ecommerce\\wwwroot\\js\\site.js",
