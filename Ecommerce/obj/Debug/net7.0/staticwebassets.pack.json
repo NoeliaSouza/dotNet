@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\js\\categoria.js"
     },
     {
+      "Id": "D:\\Descargas\\Escritorio\\Facultad\\Udemy\\ASP.NET CORE MVC\\Proyecto\\dotNet\\Ecommerce\\Ecommerce\\wwwroot\\js\\marca.js",
+      "PackagePath": "staticwebassets\\js\\marca.js"
+    },
+    {
       "Id": "D:\\Descargas\\Escritorio\\Facultad\\Udemy\\ASP.NET CORE MVC\\Proyecto\\dotNet\\Ecommerce\\Ecommerce\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
