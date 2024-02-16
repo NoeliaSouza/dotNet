@@ -11,6 +11,7 @@ namespace Ecommerce.AccesoDatos.Repositorio.IRepositorio
         IBodegaRepositorio Bodega { get;  }
         ICategoriaRepositorio Categoria { get; }    
         IMarcaRepositorio Marca { get; }    
+        IProductoRepositorio Producto { get; }    
         Task Guardar();
     }
 }
