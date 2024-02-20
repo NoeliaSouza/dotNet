@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "N7xKepvfFZNDG5L1uWhdmH1NAfOCL6QhCTzeWfcxWF0=",
+  "Hash": "mbx7isREvbwbYKtHxkPOZh18A/3GCyK+EXrNPjlr5yE=",
   "Source": "Ecommerce",
   "BasePath": "_content/Ecommerce",
   "Mode": "Default",
@@ -1154,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\marca.js"
+    },
+    {
+      "Identity": "D:\\Descargas\\Escritorio\\Facultad\\Udemy\\ASP.NET CORE MVC\\Proyecto\\dotNet\\Ecommerce\\Ecommerce\\wwwroot\\js\\producto.js",
+      "SourceId": "Ecommerce",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Descargas\\Escritorio\\Facultad\\Udemy\\ASP.NET CORE MVC\\Proyecto\\dotNet\\Ecommerce\\Ecommerce\\wwwroot\\",
+      "BasePath": "_content/Ecommerce",
+      "RelativePath": "js/producto.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\producto.js"
     },
     {
       "Identity": "D:\\Descargas\\Escritorio\\Facultad\\Udemy\\ASP.NET CORE MVC\\Proyecto\\dotNet\\Ecommerce\\Ecommerce\\wwwroot\\js\\site.js",
