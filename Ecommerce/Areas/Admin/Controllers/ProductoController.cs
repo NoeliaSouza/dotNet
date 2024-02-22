@@ -1,5 +1,6 @@
 ﻿using Ecommerce.AccesoDatos.Repositorio.IRepositorio;
 using Ecommerce.Modelos;
+using Ecommerce.Modelos.ViewModels;
 using Ecommerce.Utilidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -22,8 +23,28 @@ namespace Ecommerce.Areas.Admin.Controllers
 
         public async Task<IActionResult> Upsert(int? id)
         {
+            ProductoVM productoVM = new ProductoVM()
+            {
+                Producto = new Producto(),
+                CategoriaLista = _unidadTrabajo.Producto.ObtenerDDL("Categoria"),
+                MarcaLista = _unidadTrabajo.Producto.ObtenerDDL("Marca")
+            };
+
+            if (id == null)
+            {
+                return View(productoVM);
+            }
+            else
+            {
+                productoVM.Producto = await _unidadTrabajo.Producto.Obtener(id.GetValueOrDefault());
+                if (productoVM.Producto == null)
+                {
+                    return NotFound();
+                }
+                return View(productoVM);
+            }
+
             
-            return View();
         }
 
 

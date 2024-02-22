@@ -560,3 +560,5 @@ D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerc
 D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Descargas\Escritorio\Facultad\Udemy\ASP.NET CORE MVC\Proyecto\dotNet\Ecommerce\Ecommerce\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll

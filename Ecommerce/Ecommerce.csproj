@@ -17,13 +17,17 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.12" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Ecommerce.AccesoDatos\Ecommerce.AccesoDatos.csproj" />
     <ProjectReference Include="..\Ecommerce.Modelos\Ecommerce.Modelos.csproj" />
     <ProjectReference Include="..\Ecommerce.Utilidades\Ecommerce.Utilidades.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\imagenes\producto\" />
   </ItemGroup>
 
 </Project>
