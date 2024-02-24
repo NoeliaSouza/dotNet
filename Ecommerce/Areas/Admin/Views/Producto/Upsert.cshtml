@@ -85,6 +85,27 @@
                         </div>
                     </div>
 
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Producto Padre</label>
+                        <select asp-for="Producto.PadreId" asp-items="@Model.PadreLista" class="form-select">
+                            <option disabled selected>-- Producto Padre --</option>
+                        </select>
+                        <span asp-validation-for="Producto.PadreId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Estado</label>
+                        <select asp-for="Producto.Estado"  class="form-select">
+                            <option value="true">Activo</option>
+                            <option value="false">Inactivo</option>
+                        </select>
+                        <span asp-validation-for="Producto.Estado" class="text-danger"></span>
+                    </div>
+                </div>
+
                     <br />
 
                     <div class="d-grid gap-2 d-md-block" >

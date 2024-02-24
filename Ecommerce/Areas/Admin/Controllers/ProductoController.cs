@@ -29,11 +29,13 @@ namespace Ecommerce.Areas.Admin.Controllers
             {
                 Producto = new Producto(),
                 CategoriaLista = _unidadTrabajo.Producto.ObtenerDDL("Categoria"),
-                MarcaLista = _unidadTrabajo.Producto.ObtenerDDL("Marca")
+                MarcaLista = _unidadTrabajo.Producto.ObtenerDDL("Marca"),
+                PadreLista = _unidadTrabajo.Producto.ObtenerDDL("Producto")
             };
 
             if (id == null)
             {
+                productoVM.Producto.Estado = true;
                 return View(productoVM);
             }
             else
@@ -112,6 +114,7 @@ namespace Ecommerce.Areas.Admin.Controllers
             //Si no es valido
             productoVM.CategoriaLista = _unidadTrabajo.Producto.ObtenerDDL("Categoria");
             productoVM.MarcaLista = _unidadTrabajo.Producto.ObtenerDDL("Marca");
+            productoVM.PadreLista = _unidadTrabajo.Producto.ObtenerDDL("Producto");
             return View(productoVM);
         }
 
@@ -138,6 +141,15 @@ namespace Ecommerce.Areas.Admin.Controllers
             {
                 return Json(new { success = false, message = "Error al eliminar Producto" });
             }
+            //Eliminamos imagen 
+            string upload = _webHostEnvironment.WebRootPath + DS.ImagenRuta;
+            var anteriorFile = Path.Combine(upload, producto.ImagenUrl);
+            if (System.IO.File.Exists(anteriorFile))
+            {
+                System.IO.File.Delete(anteriorFile);
+            }
+
+
             _unidadTrabajo.Producto.Remover(producto);
             await _unidadTrabajo.Guardar();
             return Json(new { success = true, message = "Producto eliminada exitosamente" });

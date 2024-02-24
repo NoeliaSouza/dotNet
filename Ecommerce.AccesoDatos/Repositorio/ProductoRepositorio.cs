@@ -59,6 +59,14 @@ namespace Ecommerce.AccesoDatos.Repositorio
                     Value = m.Id.ToString()
                 });
             }
+            if (obj == "Producto")
+            {
+                return _db.Productos.Where(p => p.Estado == true).Select(p => new SelectListItem
+                {
+                    Text = p.Descripcion,
+                    Value = p.Id.ToString()
+                });
+            }
             return null;
         }
     }
