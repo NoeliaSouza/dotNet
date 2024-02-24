@@ -7,11 +7,11 @@
     var titulo = "Agregar nuevo producto";
 }
 
-<form method="post" ecntype="multipart/form-data">
+<form method="post" enctype="multipart/form-data">
     @if (Model.Producto.Id != 0)
     {
         titulo = "Editar producto";
-        <input asp-for="Producto.Id" hidden/>
+        <input asp-for="Producto.Id" hidden id="idProducto"/>
         <input asp-for="Producto.ImagenUrl" hidden/>
     }
 
@@ -21,8 +21,8 @@
             <h2 class="text-info">@titulo</h2>
         </div>
         <div class="row">
-            <div class="col-8">
-                <div class="container">
+            <div class="col-8" id="divIzq">
+                
 
                     <div class="row">
                         <div class="col-md-6">
@@ -49,7 +49,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row" >
                         <div class="col-md-6">
                             <label>Precio</label>
                             <input asp-for="Producto.Precio" class="form-control" />
@@ -60,8 +60,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label>Imagen</label>
-                            <input type="file" accept="image/png, image/gif
-                                image/jpeg" name="files" id="imagenId" class="form-control" />
+                            <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg" name="files" id="imagenId" class="form-control" />
                             <span asp-validation-for="Producto.ImagenUrl" class="text-danger"></span>
                         </div>
                     </div>
@@ -77,7 +76,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6" >
                             <label>Marca</label>
                             <select asp-for="Producto.MarcaId" asp-items="@Model.MarcaLista" class="form-select">
                                 <option disabled selected>-- Seleccione una marca --</option>
@@ -106,15 +105,15 @@
 
                     </div>
 
-                </div>
+                
 
             </div>
 
-            <div class="col-4">
+            <div class="col-4" id="divDer">
                 @if (Model.Producto.Id != 0)
                 {
                     <img src="@DS.ImagenRuta@Model.Producto.ImagenUrl"
-                    width="50vh" style="border-radius:5px; border:1px solid #bbb; "/>
+                    width="400px" style="border-radius:5px; border:1px solid #bbb; "/>
                 }
             </div>
         </div>
@@ -131,6 +130,15 @@
                 swal("Error", "Seleccione una imagen", "error")
                 return false;
             }
+        }
+        var id = document.getElementById("idProducto").value;
+        var divIzq = document.getElementById("divIzq");
+        var divDer= document.getElementById("divDer");
+
+        if (id!=0){
+            divIzq.className="col-6";
+            divDer.className="col-6";
+            
         }
     </script>
 }

@@ -11,10 +11,12 @@ namespace Ecommerce.Areas.Admin.Controllers
     public class ProductoController : Controller
     {
         private readonly IUnidadTrabajo _unidadTrabajo;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ProductoController(IUnidadTrabajo unidadTrabajo)
+        public ProductoController(IUnidadTrabajo unidadTrabajo, IWebHostEnvironment webHostEnvironment)
         {
             _unidadTrabajo = unidadTrabajo;
+            _webHostEnvironment = webHostEnvironment;
         }
         public IActionResult Index()
         {
@@ -44,7 +46,73 @@ namespace Ecommerce.Areas.Admin.Controllers
                 return View(productoVM);
             }
 
-            
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Upsert(ProductoVM productoVM)
+        {
+            if (ModelState.IsValid)
+            {
+                var files = HttpContext.Request.Form.Files;
+                string webRootPath = _webHostEnvironment.WebRootPath;
+                if (productoVM.Producto.Id == 0)
+                {   //Creamos
+                    string upload = webRootPath + DS.ImagenRuta;
+                    string fileName=Guid.NewGuid().ToString();
+                    string extension = Path.GetExtension(files[0].FileName);
+
+                    using (var fileStream = new FileStream(Path.Combine(upload, fileName + extension),
+                        FileMode.Create))
+                    {
+                        files[0].CopyTo(fileStream);
+                    }
+                    productoVM.Producto.ImagenUrl = fileName + extension;
+                    await _unidadTrabajo.Producto.Agregar(productoVM.Producto);
+                }
+                else
+                {
+                    //Actualizamos
+                    var objProducto = await _unidadTrabajo.Producto.ObtenerPrimero(p => p.Id == productoVM.Producto.Id,
+                        isTracking:false);
+                    //Si se carga nueva imagen
+                    if (files.Count>0)
+                    {
+                        string upload = webRootPath + DS.ImagenRuta;
+                        string fileName = Guid.NewGuid().ToString();
+                        string extension = Path.GetExtension(files[0].FileName);
+                        //Borramos la anterior
+                        var anteriorFile=Path.Combine(upload, objProducto.ImagenUrl);
+                        if (System.IO.File.Exists(anteriorFile))
+                        {
+                            System.IO.File.Delete(anteriorFile);
+                        }
+                        //Cargamos la nueva
+                        using (var fileStream = new FileStream(Path.Combine(upload, fileName + extension),
+                            FileMode.Create))
+                        {
+                            files[0].CopyTo(fileStream);
+                        }
+                        productoVM.Producto.ImagenUrl = fileName + extension;
+                    }
+                    //No se carga imagen nueva
+                    else
+                    {
+                        productoVM.Producto.ImagenUrl=objProducto.ImagenUrl;
+                    }
+                    //Actualizamos
+                    _unidadTrabajo.Producto.Actualizar(productoVM.Producto);
+                }
+                TempData[DS.Exitosa] = "Transacción Exitosa!";
+                await _unidadTrabajo.Guardar();
+                return View("Index");
+
+            }
+            //Si no es valido
+            productoVM.CategoriaLista = _unidadTrabajo.Producto.ObtenerDDL("Categoria");
+            productoVM.MarcaLista = _unidadTrabajo.Producto.ObtenerDDL("Marca");
+            return View(productoVM);
         }
 
 
