@@ -20,8 +20,19 @@ namespace Ecommerce.Areas.Inventario.Controllers
             _unidadTrabajo = unidadTrabajo;
         }
 
-        public IActionResult Index(int numeroPagina=1)
+        public IActionResult Index(int numeroPagina=1, string busqueda="", string busquedaActual="")
         {
+
+            if (!String.IsNullOrEmpty(busqueda))
+            {
+                numeroPagina = 1;
+            }
+            else
+            {
+                busqueda = busquedaActual;
+            }
+            ViewData["BusquedaActual"] = busqueda;
+            
             if (numeroPagina < 1) { numeroPagina = 1; }
 
             Parametros parametros = new Parametros()
@@ -30,6 +41,12 @@ namespace Ecommerce.Areas.Inventario.Controllers
                 TamañoPagina=4
             };
             var resultado = _unidadTrabajo.Producto.ObtenerTodosPaginado(parametros);
+
+            //Agregamos filtro
+            if (!String.IsNullOrEmpty(busqueda))
+            {
+                resultado = _unidadTrabajo.Producto.ObtenerTodosPaginado(parametros, p => p.Descripcion.Contains(busqueda));
+            }
 
             ViewData["TotalPaginas"] = resultado.MetaData.PaginasTotales;
             ViewData["TotalRegistros"] = resultado.MetaData.TotalCount;
