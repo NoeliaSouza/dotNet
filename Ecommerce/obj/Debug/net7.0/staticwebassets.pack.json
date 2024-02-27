@@ -21,8 +21,16 @@
       "PackagePath": "staticwebassets\\imagenes\\icono.png"
     },
     {
+      "Id": "D:\\Descargas\\Escritorio\\Facultad\\Udemy\\ASP.NET CORE MVC\\Proyecto\\dotNet\\Ecommerce\\Ecommerce\\wwwroot\\imagenes\\producto\\a3e27af3-2147-467a-9ef6-515f22243a9d.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\producto\\a3e27af3-2147-467a-9ef6-515f22243a9d.jpg"
+    },
+    {
       "Id": "D:\\Descargas\\Escritorio\\Facultad\\Udemy\\ASP.NET CORE MVC\\Proyecto\\dotNet\\Ecommerce\\Ecommerce\\wwwroot\\imagenes\\producto\\ea0556a3-ca27-4e00-a56b-1945e5e8fff2.jpeg",
       "PackagePath": "staticwebassets\\imagenes\\producto\\ea0556a3-ca27-4e00-a56b-1945e5e8fff2.jpeg"
+    },
+    {
+      "Id": "D:\\Descargas\\Escritorio\\Facultad\\Udemy\\ASP.NET CORE MVC\\Proyecto\\dotNet\\Ecommerce\\Ecommerce\\wwwroot\\imagenes\\producto\\f006b797-cf7e-4c81-9462-e1113c787c0e.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\producto\\f006b797-cf7e-4c81-9462-e1113c787c0e.jpg"
     },
     {
       "Id": "D:\\Descargas\\Escritorio\\Facultad\\Udemy\\ASP.NET CORE MVC\\Proyecto\\dotNet\\Ecommerce\\Ecommerce\\wwwroot\\js\\bodega.js",

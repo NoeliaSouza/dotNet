@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Ecommerce.Modelos.Producto>
+﻿@model Ecommerce.Modelos.Especificaciones.ListaPaginada<Producto>
 @using Ecommerce.Utilidades
 @{
     ViewData["Title"] = "Home Page";
@@ -51,6 +51,27 @@
             }
         </div>
 
+        <!-- Botones -->
+        <a asp-action="Index" asp-route-numeroPagina="@(1)" 
+            class="btn btn-outline-dark"> 
+            <i class="bi bi-skip-start-fill"></i>
+        </a>
 
+        <a asp-action="Index" asp-route-numeroPagina="@((int)ViewData["NumeroPagina"]-1)"
+            class="btn btn-outline-dark @ViewData["Previo"]">
+            <i class="bi bi-caret-left-fill"></i>
+        </a>
+
+        <span>Pagina @ViewData["NumeroPagina"] de @ViewData["TotalPaginas"]</span>
+
+        <a asp-action="Index" asp-route-numeroPagina="@((int)ViewData["NumeroPagina"]+1)"
+            class="btn btn-outline-dark @ViewData["Siguiente"]">
+            <i class="bi bi-caret-right-fill"></i>
+        </a>
+           
+        <a asp-action="Index" asp-route-numeroPagina="@ViewData["TotalPaginas"]" 
+            class="btn btn-outline-dark">
+            <i class="bi bi-skip-end"></i>
+        </a>
     </div>
 </section>

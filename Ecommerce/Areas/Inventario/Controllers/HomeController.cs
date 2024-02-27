@@ -1,5 +1,6 @@
 ﻿using Ecommerce.AccesoDatos.Repositorio.IRepositorio;
 using Ecommerce.Modelos;
+using Ecommerce.Modelos.Especificaciones;
 using Ecommerce.Modelos.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -19,10 +20,28 @@ namespace Ecommerce.Areas.Inventario.Controllers
             _unidadTrabajo = unidadTrabajo;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index(int numeroPagina=1)
         {
-            IEnumerable<Producto> productoLista = await _unidadTrabajo.Producto.ObtenerTodos();
-            return View(productoLista);
+            if (numeroPagina < 1) { numeroPagina = 1; }
+
+            Parametros parametros = new Parametros()
+            {
+                NumeroPagina=numeroPagina,
+                TamañoPagina=4
+            };
+            var resultado = _unidadTrabajo.Producto.ObtenerTodosPaginado(parametros);
+
+            ViewData["TotalPaginas"] = resultado.MetaData.PaginasTotales;
+            ViewData["TotalRegistros"] = resultado.MetaData.TotalCount;
+            ViewData["TamañoPagina"] = resultado.MetaData.TamañoPagina;
+            ViewData["NumeroPagina"] = numeroPagina;
+            ViewData["Previo"] = "disabled";
+            ViewData["Siguiente"] = "";
+
+            if (numeroPagina > 1) { ViewData["Previo"] = ""; }
+            if (resultado.MetaData.PaginasTotales <= numeroPagina) { ViewData["Siguiente"] = "disabled"; }
+
+            return View(resultado);
         }
 
         public IActionResult Privacy()
