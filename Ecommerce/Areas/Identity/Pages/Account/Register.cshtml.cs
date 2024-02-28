@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 
@@ -115,12 +116,23 @@ namespace Ecommerce.Areas.Identity.Pages.Account
             public string Pais { get; set; }
             public string Rol { get; set; }
 
+            public IEnumerable<SelectListItem> ListaRol { get; set; }
+
         }
 
 
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
+            Input = new InputModel()
+            {
+                ListaRol= _roleManager.Roles.Where(r=>r.Name!=DS.RolAdmin).Select(n=>n.Name)
+                .Select(l=> new SelectListItem
+                {
+                    Text=l,
+                    Value=l
+                })
+            };
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
@@ -165,7 +177,18 @@ namespace Ecommerce.Areas.Identity.Pages.Account
                     {
                         await _roleManager.CreateAsync(new IdentityRole(DS.RolInventario));
                     }
-                    await _userManager.AddToRoleAsync(user, DS.RolAdmin);
+                    //await _userManager.AddToRoleAsync(user, DS.RolAdmin);
+
+                    if (user.Rol == null)
+                    {
+                        //Es Cliente
+                        await _userManager.AddToRoleAsync(user, DS.RolCliente);
+                    }
+                    else
+                    {
+                        //No es cliente
+                        await _userManager.AddToRoleAsync(user, user.Rol);
+                    }
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -185,8 +208,17 @@ namespace Ecommerce.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
+                        if (user.Rol == null)
+                        {
+                            await _signInManager.SignInAsync(user, isPersistent: false);
+                            return LocalRedirect(returnUrl);
+                        }
+                        else
+                        {
+                            //Admin esta registrando usuario
+                            return RedirectToAction("Index", "Usuario", new { Area = "Admin" });
+                        }
+                        
                     }
                 }
                 foreach (var error in result.Errors)

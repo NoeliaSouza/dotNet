@@ -1,5 +1,6 @@
 ﻿@page
 @model RegisterModel
+@using Ecommerce.Utilidades
 @{
     ViewData["Title"] = "Register";
 }
@@ -61,6 +62,19 @@
                 <label asp-for="Input.ConfirmPassword">Confirm Password</label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
+
+            <!--Roles-->
+                @if (User.IsInRole(DS.RolAdmin))
+                {
+                    <div class="form-floating mb-3">
+                        <lable asp-for="Input.Rol">Rol</lable>
+                        <select asp-for="Input.Rol" class="form-select" asp-items="@Model.Input.ListaRol">
+                            <option value="">--Seleccione Rol--</option>
+                        </select>
+                    </div>
+                }
+          
+
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
     </div>
