@@ -3451,6 +3451,9 @@
         }
       },
       "Ecommerce.Utilidades/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.UI": "7.0.16"
+        },
         "runtime": {
           "Ecommerce.Utilidades.dll": {}
         },
