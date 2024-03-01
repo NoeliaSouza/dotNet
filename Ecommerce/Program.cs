@@ -15,6 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddErrorDescriber<ErrorDescriber>()
     .AddDefaultTokenProviders()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
@@ -25,6 +26,17 @@ builder.Services.AddScoped<IUnidadTrabajo, UnidadTrabajo>();
 builder.Services.AddRazorPages();
 //Agregamos servicio de emailSender
 builder.Services.AddSingleton<IEmailSender, EmailSender>();
+
+//Agregamos servicio para configurar passWord
+builder.Services.Configure<IdentityOptions>(Options =>
+{
+    Options.Password.RequireDigit = false;
+    Options.Password.RequireLowercase = true;
+    Options.Password.RequireNonAlphanumeric = false;
+    Options.Password.RequireUppercase = false;
+    Options.Password.RequiredLength = 6;
+    Options.Password.RequiredUniqueChars = 1;
+});
 
 var app = builder.Build();
 
