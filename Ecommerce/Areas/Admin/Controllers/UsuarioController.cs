@@ -37,6 +37,28 @@ namespace Ecommerce.Areas.Admin.Controllers
             }
             return Json(new { data = usuarioLista });
         }
+        [HttpPost]
+        public async Task<IActionResult> BloquearDesbloquear([FromBody] string id)
+        {
+            var usuario = await _unidadTrabajo.Usuario.ObtenerPrimero(u => u.Id == id);
+            if (usuario == null)
+            {
+                return Json(new { success = false, message = "Error de usuario" });
+            }
+            if(usuario.LockoutEnd !=null && usuario.LockoutEnd > DateTime.Now)
+            {
+                //Bloqueado
+                usuario.LockoutEnd= DateTime.Now;
+            }
+            else
+            {
+                usuario.LockoutEnd = DateTime.Now.AddYears(100);
+            }
+            await _unidadTrabajo.Guardar();
+            return Json(new { success = true, message = "Operacion exitosa" });
+        }
+
+
         #endregion
     }
 

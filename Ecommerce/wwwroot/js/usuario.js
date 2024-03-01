@@ -31,33 +31,49 @@ function loadDataTable() {
             { "data": "rol" },
               
             
-            //{
-            //    "data": "id",
-            //    "render": function (data) {
-            //        return `
-            //            <div class="text-center">
-            //                <a href="/Admin/Categoria/Upsert/${data}"
-            //                class="btn btn-dark text-white" style="cursor:pointer"> 
-            //                    <i class="bi bi-pencil-square"></i>
-            //                </a>
-            //                <a onclick=Delete("/Admin/Categoria/Delete/${data}")
-            //                class="btn btn-danger text-white" style="cursor:pointer">
-            //                    <i class="bi bi-trash3"></i>
-            //                </a>
-            //            </div>
-            //        `;
-            //    }, "width": "20%"
-            //}
+            {
+                "data": {
+                    id: "id", lockoutEnd: "lockoutEnd"
+                    },
+                "render": function (data) {
+                    let hoy = new Date().getTime();
+                    let bloqueo = new Date(data.lockoutEnd).getTime();
+                    if (bloqueo > hoy) {
+                        //Bloqueado
+                        return `
+                        <div class="text-center">
+                            <a onclick=BloquearDesbloquear('${data.id}')
+                            class="btn btn-danger text-white style="cursor:pointer; width:120px">
+                                <i class="bi bi-unlock-fill"></i> Desbloquear
+                            </a>
+                        </div>
+
+                        `;
+                    } else {
+                        //No Bloqueado
+                        return `
+                        <div class="text-center">
+                            <a onclick=BloquearDesbloquear('${data.id}')
+                            class="btn btn-success text-white style="cursor:pointer; width:120px">
+                                <i class="bi bi-lock-fill"></i> Bloquear
+                            </a>
+                        </div>
+
+                        `;
+                    }
+
+                }
+            }
         ]
 
     });
 }
 
 
-function Delete(url) {
+function BloquearDesbloquear(id) {
     swal({
-        title: "Esta seguro de eliminar la categoria?",
-        text: "este registro no se podrá recuperar",
+        title: "Esta seguro de bloquear/desbloquear el usuario?",
+        text: "Se bloqueará/desbloqueará el usuario",
         icon: "warning",
         buttons: true,
         dangerMode: true
@@ -65,7 +81,10 @@ function Delete(url) {
         if (borrar) {
             $.ajax({
                 type: "POST",
-                url: url,
+                url: '/Admin/Usuario/BloquearDesbloquear',
+                data: JSON.stringify(id),
+                contentType: "application/json",
+                
                 success: function (data) {
                     if (data.success) {
                         toastr.success(data.message)
