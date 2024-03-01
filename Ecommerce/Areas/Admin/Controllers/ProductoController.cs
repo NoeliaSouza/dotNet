@@ -2,12 +2,15 @@
 using Ecommerce.Modelos;
 using Ecommerce.Modelos.ViewModels;
 using Ecommerce.Utilidades;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using System.Data;
 
 namespace Ecommerce.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = DS.RolAdmin + "," + DS.RolInventario)]
     public class ProductoController : Controller
     {
         private readonly IUnidadTrabajo _unidadTrabajo;

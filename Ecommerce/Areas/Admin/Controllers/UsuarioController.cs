@@ -1,12 +1,16 @@
 ﻿using Ecommerce.AccesoDatos.Data;
 using Ecommerce.AccesoDatos.Repositorio;
 using Ecommerce.AccesoDatos.Repositorio.IRepositorio;
+using Ecommerce.Utilidades;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace Ecommerce.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = DS.RolAdmin)]
     public class UsuarioController : Controller
     {
         private readonly IUnidadTrabajo _unidadTrabajo;

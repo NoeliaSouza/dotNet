@@ -1,12 +1,15 @@
 ﻿using Ecommerce.AccesoDatos.Repositorio.IRepositorio;
 using Ecommerce.Modelos;
 using Ecommerce.Utilidades;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using System.Data;
 
 namespace Ecommerce.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = DS.RolAdmin)]
     public class MarcaController : Controller
     {
         private readonly IUnidadTrabajo _unidadTrabajo;
