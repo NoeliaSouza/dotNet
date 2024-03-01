@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "D:\\Descargas\\Escritorio\\Facultad\\Udemy\\ASP.NET CORE MVC\\Proyecto\\dotNet\\Ecommerce\\Ecommerce\\wwwroot\\js\\usuario.js",
+      "PackagePath": "staticwebassets\\js\\usuario.js"
+    },
+    {
       "Id": "D:\\Descargas\\Escritorio\\Facultad\\Udemy\\ASP.NET CORE MVC\\Proyecto\\dotNet\\Ecommerce\\Ecommerce\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
