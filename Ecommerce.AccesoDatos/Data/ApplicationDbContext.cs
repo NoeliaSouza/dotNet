@@ -17,6 +17,7 @@ namespace Ecommerce.AccesoDatos.Data
         public DbSet<Marca> Marcas { get; set; }
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Usuario> Usuarios{ get; set; }
+        public DbSet<BodegaProducto> BodegasProductos { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)

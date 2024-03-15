@@ -17,6 +17,7 @@ namespace Ecommerce.AccesoDatos.Repositorio
         public IProductoRepositorio Producto { get; private set; }
 
         public IUsuarioRepositorio Usuario { get; private set; }
+        public IBodegaProductoRepositorio BodegaProducto { get; private set; }
 
         public UnidadTrabajo( ApplicationDbContext db)
         {
@@ -26,6 +27,7 @@ namespace Ecommerce.AccesoDatos.Repositorio
             Marca=new MarcaRepositorio(_db);
             Producto=new ProductoRepositorio(_db);
             Usuario = new UsuarioRepositorio(_db);
+            BodegaProducto = new BodegaProductoRepositorio(_db);
         }
 
 

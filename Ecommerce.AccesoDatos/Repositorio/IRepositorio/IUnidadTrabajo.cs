@@ -8,11 +8,12 @@ namespace Ecommerce.AccesoDatos.Repositorio.IRepositorio
 {
     public interface IUnidadTrabajo : IDisposable
     {
-        IBodegaRepositorio Bodega { get;  }
-        ICategoriaRepositorio Categoria { get; }    
-        IMarcaRepositorio Marca { get; }    
-        IProductoRepositorio Producto { get; }    
-        IUsuarioRepositorio Usuario { get; }    
+        IBodegaRepositorio Bodega { get; }
+        ICategoriaRepositorio Categoria { get; }
+        IMarcaRepositorio Marca { get; }
+        IProductoRepositorio Producto { get; }
+        IUsuarioRepositorio Usuario { get; }
+        IBodegaProductoRepositorio  BodegaProducto{ get;} 
         Task Guardar();
     }
 }
